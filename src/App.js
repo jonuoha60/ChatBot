@@ -1,7 +1,7 @@
 
 
 import React, { useState } from 'react';
-import ChatBot from './components/ChatBot';
+import ChatBot from './ChatBot';
 
 function App() {
   const [OpenChat, setOpenChat] = useState(true); // auto-opens chat

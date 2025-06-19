@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../css/Chat.css';
-import closeIcon from "../images/love-bot.png"; 
+import Icon from "../images/love-bot.png"; 
 
 const RandomGenerator = [
     { text: "Type Hi Roku for a surprise" },
@@ -10,6 +10,8 @@ const RandomGenerator = [
     { text: "You’ve earned a surprise! It's Roku bucks... jk!" },
     { text: "What does Roku say to Goku? Don't destroy my planet... get it? nvm" }
 ];
+
+// Joke Generator
 const JokeGenerator = [
   {
     joke: "Why do programmers prefer dark mode?",
@@ -39,10 +41,10 @@ const JokeGenerator = [
 
 
 
-const ChatBot = ({ OpenRoku, setOpenRoku  }) => {
+const ChatBot = ({ OpenChat, setOpenChat  }) => {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
-    const [isChatVisible, setIsChatVisible] = useState(OpenRoku); 
+    const [isChatVisible, setIsChatVisible] = useState(OpenChat); 
     const [isLoading, setIsLoading] = useState(false); 
     const [randomMessage, setRandomMessage] = useState("");
     const [randomJokes, setRandomJokes] = useState("");
@@ -179,7 +181,7 @@ const ChatBot = ({ OpenRoku, setOpenRoku  }) => {
 
     const RemoveRoku = () => {
         setIsChatVisible(false); 
-        setOpenRoku(false); 
+        setOpenChat(false); 
     };
 
     
@@ -187,13 +189,13 @@ const ChatBot = ({ OpenRoku, setOpenRoku  }) => {
     
 
     useEffect(() => {
-        setIsChatVisible(OpenRoku); 
-        if (OpenRoku) {
+        setIsChatVisible(OpenChat); 
+        if (OpenChat) {
             setRandomMessage(RandomGenerator[Math.floor(Math.random() * RandomGenerator.length)].text);
         } else {
             setRandomMessage(""); 
         }
-    }, [OpenRoku]); 
+    }, [OpenChat]); 
     
     const handleCloseChat = () => {
         setIsChatVisible(prev => {
